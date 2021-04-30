@@ -5,11 +5,12 @@ import { Conta } from "./Conta.js";
 
 const cliente1 = new Cliente("Ricardo", 11122233309);
 
-const cc1 = new Conta(0, cliente1, 1001);
+const cc1 = new ContaCorrente(cliente1, 1001);
 cc1.depositar(500);
 cc1.sacar(100);
 
-const contaPoupanca = new Conta(50, cliente1, 1001);
+const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
+contaPoupanca.sacar(10);
 
 console.log(contaPoupanca);
 console.log(cc1);
