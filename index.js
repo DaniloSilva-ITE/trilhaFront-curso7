@@ -1,26 +1,21 @@
 import {Cliente} from "./Cliente.js"
-import {ContaCorrente} from "./ContaCorrente.js"
-import { ContaPoupanca } from "./ContaPoupanca.js";
-import { ContaSalario } from "./ContaSalario.js";
+import {Diretor} from "./Funcionario/Diretor.js"
+import {Gerente} from "./Funcionario/Gerente.js"
+import {SistemaAutenticacao} from "./SistemaAutenticacao.js"
+ 
+const diretor = new Diretor("Rodrigo", 10000, 12345678900);
+diretor.cadastrarSenha("123456");
+const gerente = new Gerente("Rodrigo", 5000, 12378945601);
+gerente.cadastrarSenha("123");
 
-const cliente1 = new Cliente("Ricardo", 11122233309);
+const cliente = new Cliente("Lais", 78945612379, "456");
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, "123456");
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "123");
 
-const cc1 = new ContaCorrente(cliente1, 1001);
-cc1.depositar(500);
-cc1.sacar(100);
-
-const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
-cc1.sacar(10);
-
-// const continha = new Conta(50, cliente1, 1001);
-
-const contaSalario = new ContaSalario(cliente1);
-contaSalario.depositar(100);
-contaSalario.sacar(10);
-
-console.log(contaSalario);
-// console.log(contaPoupanca);
-// console.log(cc1);
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, "456");
+console.log(clienteEstaLogado);
+// console.log(diretorEstaLogado);
+// console.log(gerenteEstaLogado);
 
 /* Guia para starta projeto com modulo
 npm init
